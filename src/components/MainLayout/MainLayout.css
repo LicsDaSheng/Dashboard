@@ -1,0 +1,23 @@
+ 
+  .normal {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    margin-top: 50px;
+  }
+  
+  .main {
+    padding: 0 8px;
+    flex: 1 0 auto;
+  }
+
+  .header{
+    position: fixed;
+    z-index: 1101;
+    width: 100%;
+  }
