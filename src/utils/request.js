@@ -22,6 +22,7 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default async function request(url, options) {
+  
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)

@@ -19,7 +19,7 @@ const Users=({
       function deleteHandler(id){
         dispatch({
           type: 'users/remove',
-          payload: id,
+          payload: id
         });
       }
 
@@ -31,7 +31,7 @@ const Users=({
         console.info(values);
         dispatch({
           type: 'users/patch',
-          payload: {id, values},
+          payload: {id, values}
         })
       }
 

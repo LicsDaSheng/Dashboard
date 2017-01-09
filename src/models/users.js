@@ -9,7 +9,7 @@ export default {
   reducers: {
     save(state,{ payload: { data: list, total, page} }){
       return {...state,list,total, page};
-    },
+    }
   },
   effects: {
     /**

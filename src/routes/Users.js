@@ -11,7 +11,7 @@ const Users = (location)=> {
       </div>
     </MainLayout>
   );
-}
+};
 
 
 export default connect()(Users);
