@@ -65,11 +65,12 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(({ pathname }) => {
-        if (pathname !== '/login') {
-          dispatch({
-            type: 'checkLogin'
-          });
-        }if(pathname==='/logout'){
+        // if (pathname !== '/login') {
+        //   dispatch({
+        //     type: 'checkLogin'
+        //   });
+        // }
+        if(pathname==='/logout'){
           dispatch({
             type:'logout'
           })

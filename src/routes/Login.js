@@ -15,5 +15,12 @@ const Login =({dispatch,user,errorMessage})=>{
         <NormalLoginForm err={errorMessage} doLogin={doLogin.bind(user)}/>
     );
 };
+function mapStateToProps(state){
+    const {user, errorMessage} = state.login;
+    return {
+        user,
+        errorMessage
+    }
+}
 
-export default connect()(Login);
+export default connect(mapStateToProps)(Login);

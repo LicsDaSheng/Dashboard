@@ -21,6 +21,8 @@ app.use(createLoading());
 
 app.model(require('./models/users'));
 
+app.model(require("./models/topMenu"));
+
 app.model(require("./models/login"));
 
 // 4. Router
