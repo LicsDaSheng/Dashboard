@@ -51,7 +51,7 @@ export default {
     /**
      * 重新加载
      */
-    *reload(action, {put, select}){
+    *reload( {put, select}){
       const page = yield select(state => state.users.page);
       yield put({ type: 'fetch', payload: { page }});
     }

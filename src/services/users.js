@@ -6,7 +6,7 @@ export function fetch({page}){
 
 export function remove(id) {
   return request(`/api/users/${id}`, {
-    method: 'DELETE',
+    method: 'DELETE'
   });
 }
 
@@ -16,7 +16,7 @@ export function patch(id, values) {
         headers: {
                    'Content-Type': 'application/json'
                },
-        body: JSON.stringify(values),
+        body: JSON.stringify(values)
     });
 }
 
@@ -26,6 +26,6 @@ export function create(values){
         headers: {
                    'Content-Type': 'application/json'
                },
-        body:JSON.stringify(values),
+        body:JSON.stringify(values)
     })
 }
