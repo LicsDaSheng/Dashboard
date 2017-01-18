@@ -12,3 +12,5 @@ npm-debug.log*
 
 .idea/
 
+dashboard-project.sublime-project
+dashboard-project.sublime-workspace

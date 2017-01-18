@@ -1,7 +1,8 @@
 
 .normal {
-  width: 900px;
-  margin: 3em auto;
+  width: 100%;
+  padding: 30px;
+
 }
 .operation a {
   margin: 0 .5em;
