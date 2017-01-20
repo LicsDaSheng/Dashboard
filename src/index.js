@@ -1,14 +1,24 @@
 import dva from 'dva';
 import './index.html';
 import './index.css';
-import { useRouterHistory } from 'dva/router';
-import { createHashHistory } from 'history';
+import {
+	useRouterHistory
+} from 'dva/router';
+import {
+	createHashHistory
+} from 'history';
+import {
+	browserHistory
+} from 'dva/router';
 import createLogger from 'redux-logger';
 import createLoading from 'dva-loading';
 // 1. Initialize
 const app = dva({
-    history: useRouterHistory(createHashHistory)({ queryKey: false }),
-    // onAction: createLogger()
+	// history: useRouterHistory(createHashHistory)({
+	// 	queryKey: false
+	// }),
+	history: browserHistory,
+	// onAction: createLogger()
 });
 
 // 2. Plugins

@@ -1,5 +1,11 @@
 import React from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import {
+    Form,
+    Icon,
+    Input,
+    Button,
+    Checkbox
+} from 'antd';
 const FormItem = Form.Item;
 import styles from './index.css';
 
@@ -8,7 +14,9 @@ const NormalLoginForm = React.createClass({
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                const {doLogin} =this.props;
+                const {
+                    doLogin
+                } = this.props;
                 doLogin(values);
             }
         });
@@ -16,21 +24,25 @@ const NormalLoginForm = React.createClass({
 
     },
     render() {
-        const { getFieldDecorator } = this.props.form;
-        const {err} = this.props;
-        const ErrorProp = err ===""?null:<div className="ant-form-explain" style={{color:"red"}}>{err}</div>
+        const {
+            getFieldDecorator
+        } = this.props.form;
+        const {
+            err
+        } = this.props;
+        const ErrorProp = err === "" ? null : <div className="ant-form-explain" style={{color:"red"}}>{err}</div>
         return (
             <Form onSubmit={this.handleSubmit} className={styles.loginForm}>
                 {ErrorProp}
                 <FormItem>
-                    {getFieldDecorator('loginName', {
+                    {getFieldDecorator('username', {
                         rules: [{ required: true, message: '用户名不能为空!' }],
                     })(
                         <Input addonBefore={<Icon type="user" />} placeholder="用户名" />
                     )}
                 </FormItem>
                 <FormItem>
-                    {getFieldDecorator('passwd', {
+                    {getFieldDecorator('password', {
                         rules: [{ required: true, message: '密码不能为空!' }],
                     })(
                         <Input addonBefore={<Icon type="lock" />} type="password" placeholder="密码" />

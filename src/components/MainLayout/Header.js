@@ -1,26 +1,36 @@
 import React from 'react';
-import {Menu, Icon} from 'antd';
-import { Link } from 'dva/router';
-import {connect } from 'dva';
+import {
+    Menu,
+    Icon
+} from 'antd';
+import {
+    Link
+} from 'dva/router';
+import {
+    connect
+} from 'dva';
 const SubMenu = Menu.SubMenu;
 import styles from './MainLayout.css';
 
 
 
-
-const Header = ({dispatch,user,currentSelect}) =>{
+const Header = ({
+    dispatch,
+    user,
+    currentSelect
+}) => {
 
     function handleClick(e) {
         dispatch({
-            type:'topMenu/selectMenu',
-            payload:e.key
+            type: 'topMenu/selectMenu',
+            payload: e.key
         })
     }
 
 
 
     return (
-            <div>
+        <div>
                 <div className={styles.logo}><span className={styles.logoFont}>DashBoard</span></div>
                 <Menu
                     onClick={handleClick}
@@ -39,7 +49,7 @@ const Header = ({dispatch,user,currentSelect}) =>{
                             </Menu.Item>
 
                     </SubMenu>
-                    <SubMenu title={<span><Icon type="github" />欢迎您:{user.nickName}</span>}
+                    <SubMenu title={<span><Icon type="github" />欢迎您:{user.username}</span>}
                              className={styles.headerUserInfo}>
                             <Menu.Item key="user:setting"><Icon type="setting"/>设置</Menu.Item>
                             <Menu.Item key="user:logout"><Link to="/logout"><Icon type="logout"/>退出</Link></Menu.Item>
@@ -51,9 +61,14 @@ const Header = ({dispatch,user,currentSelect}) =>{
             </div>
     )
 };
+
 function mapStateToProps(state) {
-    const {user} = state.login;
-    const {currentSelect} =state.topMenu;
+    const {
+        user
+    } = state.login;
+    const {
+        currentSelect
+    } = state.topMenu;
     return {
         user,
         currentSelect

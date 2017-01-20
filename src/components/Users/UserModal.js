@@ -1,13 +1,19 @@
-import React , {Component} from 'react';
+import React, {
+    Component
+} from 'react';
 
-import { Modal, Form, Input} from 'antd';
+import {
+    Modal,
+    Form,
+    Input
+} from 'antd';
 
 
 const FormItem = Form.Item;
 
-class UserEditModal extends Component{
+class UserEditModal extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -15,40 +21,56 @@ class UserEditModal extends Component{
         };
     }
 
-    showModalHandler = (e) =>{
-        if(e) e.stopPropagation();
+    showModalHandler = (e) => {
+        if (e) e.stopPropagation();
         this.setState({
             visible: true,
         });
     }
 
-    hideModalHandler =() => {
+    hideModalHandler = () => {
         this.setState({
             visible: false,
         });
     }
 
-    okHandler =() => {
-        const { onOk } = this.props;
+    okHandler = () => {
+        const {
+            onOk
+        } = this.props;
         this.props.form.validateFields((err, values) => {
             console.info(values);
-            if(!err){
+            if (!err) {
                 onOk(values);
                 this.hideModalHandler();
             }
         })
     }
 
-    render(){
-        const { children } = this.props;
+    render() {
+        const {
+            children
+        } = this.props;
 
-        const { getFieldDecorator } = this.props.form;
+        const {
+            getFieldDecorator
+        } = this.props.form;
 
-        const { name, loginName, nickName, email, qq} = this.props.record;
+        const {
+            username,
+            nickName,
+            email,
+            qq,
+            password
+        } = this.props.record;
 
         const formItemLayout = {
-            labelCol: { span: 6},
-            wrapperCol: { span: 14},
+            labelCol: {
+                span: 6
+            },
+            wrapperCol: {
+                span: 14
+            },
         };
 
         return (
@@ -65,17 +87,17 @@ class UserEditModal extends Component{
                     <Form horizontal onSubmit={this.okHandler}>
                         <FormItem
                         {...formItemLayout}
-                        label="姓名"
+                        label="账号"
                         >
                         {
-                            getFieldDecorator('name', {
-                            initialValue: name,
+                            getFieldDecorator('username', {
+                            initialValue: username,
                             })(<Input />)
                         }
                         </FormItem>
                         <FormItem
                         {...formItemLayout}
-                        label="昵称"
+                        label="姓名"
                         >
                         {
                             getFieldDecorator('nickName', {
@@ -85,12 +107,12 @@ class UserEditModal extends Component{
                         </FormItem>
                         <FormItem
                         {...formItemLayout}
-                        label="账号"
+                        label="密码"
                         >
                         {
-                            getFieldDecorator('loginName', {
-                            initialValue: loginName,
-                            })(<Input />)
+                            getFieldDecorator('password', {
+                            initialValue: password,
+                            })(<Input disabled={"add"===this.props.modelType?false:true} type="password"/>)
                         }
                         </FormItem>
                         <FormItem
@@ -118,7 +140,7 @@ class UserEditModal extends Component{
             </span>
         );
     }
-    
+
 }
 
 export default Form.create()(UserEditModal);
